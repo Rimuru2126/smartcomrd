@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="TOPGAMA – Distribuidor oficial de Xiaomi, Redmi, POCO y Honor en República Dominicana. Envíos a domicilio, pago contra entrega, garantía real.">
+  <title>TOPGAMA – Xiaomi Virtual Store RD</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Exo+2:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ════════════ NAV ════════════ -->
+<nav>
+  <div class="logo" onclick="window.scrollTo({top:0,behavior:'smooth'})" role="link" tabindex="0" aria-label="Ir al inicio">
+    <div class="logo-box">TG</div>
+    <span class="logo-text">TOP<em>GAMA</em></span>
+  </div>
+
+  <ul class="nav-links" role="navigation" aria-label="Menú principal">
+    <li><a href="#catalogo">Catálogo</a></li>
+    <li><a href="#como-pedir">Cómo Pedir</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+
+  <button class="nav-cart" onclick="openCart()" aria-label="Abrir carrito de compras">
+    🛒 Carrito <span class="cart-count" id="cartCount">0</span>
+  </button>
+
+  <button class="nav-hamburger" id="hamburgerBtn" aria-label="Abrir menú" aria-expanded="false">
+    <span></span><span></span><span></span>
+  </button>
+</nav>
+
+<!-- Mobile Drawer -->
+<nav class="nav-drawer" id="navDrawer" aria-label="Menú móvil">
+  <a href="#catalogo">📱 Catálogo</a>
+  <a href="#como-pedir">🛒 Cómo Pedir</a>
+  <a href="#nosotros">✅ Nosotros</a>
+  <a href="#contacto">📞 Contacto</a>
+</nav>
+
+<!-- ════════════ HERO ════════════ -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-content">
+    <div class="hero-badge">🇩🇴 Distribuidor Oficial en RD</div>
+    <h1>La Tienda <em>Xiaomi</em><br>Nº1 de Santo Domingo</h1>
+    <p>Distribuidor exclusivo de Xiaomi, Redmi, POCO y Honor. Envíos a domicilio, pago contra entrega y garantía real. El mejor tech al mejor precio en República Dominicana.</p>
+    <div class="hero-btns">
+      <button class="btn-p" onclick="document.getElementById('catalogo').scrollIntoView({behavior:'smooth'})">📱 Ver Catálogo</button>
+      <a href="https://wa.me/18492078681" target="_blank" rel="noopener noreferrer" class="btn-s">💬 WhatsApp</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">18<em>K+</em></div><div class="stat-l">Seguidores</div></div>
+      <div><div class="stat-n">4<em>+</em></div><div class="stat-l">Años en RD</div></div>
+      <div><div class="stat-n">100<em>%</em></div><div class="stat-l">Originales</div></div>
+    </div>
+  </div>
+  <div class="hero-right" aria-hidden="true">
+    <div class="hero-phone-wrap">
+      <div class="hero-glow"></div>
+      <div class="hero-ring"></div>
+      <div class="hero-ring2"></div>
+      <img class="hero-phone-img"
+           src="https://fdn2.gsmarena.com/vv/bigpic/xiaomi-15-ultra.jpg"
+           alt="Xiaomi 15 Ultra"
+           onerror="this.src='https://fdn2.gsmarena.com/vv/bigpic/xiaomi-14-ultra.jpg'">
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ BRANDS ════════════ -->
+<div class="brands" aria-label="Marcas que distribuimos">
+  <div class="brands-inner">
+    <span class="brands-label">Distribuidores Oficiales</span>
+    <div class="brands-logos">
+      <div class="brand-pill"><span>XIAOMI</span></div>
+      <div class="brand-pill"><span>REDMI</span></div>
+      <div class="brand-pill"><span>POCO</span></div>
+      <div class="brand-pill"><span>HONOR</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ CATALOGO ════════════ -->
+<section class="catalog" id="catalogo">
+  <div class="sh">
+    <div class="sh-tag">📱 Catálogo Completo</div>
+    <h2 class="sh-title">Selecciona tu <em>Categoría</em></h2>
+    <p class="sh-sub">Los modelos más recientes al mejor precio en RD. Precios en pesos dominicanos.</p>
+  </div>
+
+  <div class="tabs" role="tablist" aria-label="Categorías de productos">
+    <button class="tab active" role="tab" aria-selected="true"  aria-controls="panel-xiaomi" onclick="switchTab('xiaomi',this)">📱 Xiaomi Flagship</button>
+    <button class="tab"        role="tab" aria-selected="false" aria-controls="panel-redmi"  onclick="switchTab('redmi',this)">🔴 Redmi</button>
+    <button class="tab"        role="tab" aria-selected="false" aria-controls="panel-poco"   onclick="switchTab('poco',this)">⚡ POCO</button>
+    <button class="tab"        role="tab" aria-selected="false" aria-controls="panel-honor"  onclick="switchTab('honor',this)">💠 Honor</button>
+  </div>
+
+  <div class="tab-panel active" id="panel-xiaomi" role="tabpanel"><div class="pg" id="grid-xiaomi"></div></div>
+  <div class="tab-panel"        id="panel-redmi"  role="tabpanel"><div class="pg" id="grid-redmi"></div></div>
+  <div class="tab-panel"        id="panel-poco"   role="tabpanel"><div class="pg" id="grid-poco"></div></div>
+  <div class="tab-panel"        id="panel-honor"  role="tabpanel"><div class="pg" id="grid-honor"></div></div>
+</section>
+
+<!-- ════════════ CÓMO PEDIR ════════════ -->
+<section class="how" id="como-pedir">
+  <div class="sh">
+    <div class="sh-tag">🛒 Proceso de Compra</div>
+    <h2 class="sh-title">¿Cómo <em>Realizar tu Pedido?</em></h2>
+    <p class="sh-sub">Simple, rápido y seguro. En 5 pasos tienes tu equipo en casa.</p>
+  </div>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num act">📱</div>
+      <div class="step-title">Elige tu equipo</div>
+      <div class="step-desc">Navega el catálogo y selecciona el modelo</div>
+    </div>
+    <div class="step">
+      <div class="step-num">🛒</div>
+      <div class="step-title">Agrega al carrito</div>
+      <div class="step-desc">Añade uno o varios equipos</div>
+    </div>
+    <div class="step">
+      <div class="step-num">📝</div>
+      <div class="step-title">Tus datos</div>
+      <div class="step-desc">Nombre, teléfono y dirección</div>
+    </div>
+    <div class="step">
+      <div class="step-num">💸</div>
+      <div class="step-title">Elige el pago</div>
+      <div class="step-desc">Efectivo, transferencia u otro método</div>
+    </div>
+    <div class="step">
+      <div class="step-num">✅</div>
+      <div class="step-title">Confirma por WhatsApp</div>
+      <div class="step-desc">Seguimiento de tu pedido en tiempo real</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ POR QUÉ ELEGIRNOS ════════════ -->
+<section class="why" id="nosotros">
+  <div class="sh">
+    <div class="sh-tag">✅ ¿Por qué elegirnos?</div>
+    <h2 class="sh-title">Tu Compra <em>100% Segura</em></h2>
+  </div>
+  <div class="why-grid">
+    <div class="why-card">
+      <div class="why-icon">🏆</div>
+      <div class="why-title">Distribuidor Oficial</div>
+      <div class="why-text">Distribuidor exclusivo en RD. Equipos 100% originales con caja sellada y factura.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🚚</div>
+      <div class="why-title">Envíos a Domicilio</div>
+      <div class="why-text">Entregamos en todo Santo Domingo y el interior del país. Rápido y seguro.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">💳</div>
+      <div class="why-title">Pago Contra Entrega</div>
+      <div class="why-text">Paga cuando recibas tu equipo. Sin riesgos. Transferencias y tarjetas también.</div>
+    </div>
+    <div class="why-card">
+      <div class="why-icon">🛡️</div>
+      <div class="why-title">Garantía Real</div>
+      <div class="why-text">Todos los equipos incluyen garantía oficial. Si hay problema, respondemos.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ════════════ CTA ════════════ -->
+<div class="cta-wrap" id="contacto">
+  <div class="cta-inner">
+    <div>
+      <h2>¿Listo para tu <em>próximo equipo</em>?</h2>
+      <p>Escríbenos ahora · Respuesta inmediata · Sin compromiso</p>
+    </div>
+    <div class="cta-btns">
+      <a href="https://wa.me/18492078681" target="_blank" rel="noopener noreferrer" class="btn-p">💬 WhatsApp</a>
+      <a href="tel:8492078681" class="btn-s">📞 (849) 207-8681</a>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════ FOOTER ════════════ -->
+<footer>
+  <div class="ft">
+    <div class="fb">
+      <div class="logo">
+        <div class="logo-box">TG</div>
+        <span class="logo-text">TOP<em>GAMA</em></span>
+      </div>
+      <p>Distribuidor exclusivo de Xiaomi, Redmi, POCO y Honor en República Dominicana.</p>
+      <div class="fsoc">
+        <a href="https://www.instagram.com/topgamard/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">📸</a>
+        <a href="https://wa.me/18492078681" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">💬</a>
+        <a href="https://www.facebook.com/TOPGAMA" target="_blank" rel="noopener noreferrer" aria-label="Facebook">👍</a>
+      </div>
+    </div>
+
+    <div class="fc">
+      <h4>Marcas</h4>
+      <ul>
+        <li><a onclick="goTab('xiaomi')" role="button" tabindex="0">Xiaomi Flagship</a></li>
+        <li><a onclick="goTab('redmi')"  role="button" tabindex="0">Redmi Series</a></li>
+        <li><a onclick="goTab('poco')"   role="button" tabindex="0">POCO Gaming</a></li>
+        <li><a onclick="goTab('honor')"  role="button" tabindex="0">Honor</a></li>
+      </ul>
+    </div>
+
+    <div class="fc">
+      <h4>Empresa</h4>
+      <ul>
+        <li><a href="#nosotros">Sobre Nosotros</a></li>
+        <li><a href="#como-pedir">Cómo Comprar</a></li>
+        <li><a href="#nosotros">Garantía</a></li>
+        <li><a href="#nosotros">Política de Cambios</a></li>
+      </ul>
+    </div>
+
+    <div class="fc">
+      <h4>Contacto</h4>
+      <ul>
+        <li><a href="tel:8492078681">(849) 207-8681</a></li>
+        <li><a href="https://wa.me/18492078681" target="_blank" rel="noopener noreferrer">WhatsApp Directo</a></li>
+        <li><a href="https://www.instagram.com/topgamard/" target="_blank" rel="noopener noreferrer">@topgamard</a></li>
+        <li><span style="color:var(--muted);font-size:13px;">C. Miguel Ángel Monclús 231, SD</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="fb-bot">
+    <p>© 2025 <em>TOPGAMA</em> · 🇩🇴 Santo Domingo, RD</p>
+    <p>Distribuidor <em>Xiaomi · Redmi · POCO · Honor</em></p>
+  </div>
+</footer>
+
+<!-- WA FAB -->
+<a href="https://wa.me/18492078681" target="_blank" rel="noopener noreferrer" class="wa-fab" aria-label="Contactar por WhatsApp">
+  <svg viewBox="0 0 24 24" aria-hidden="true">
+    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741 1.022 1.024-3.666-.236-.374A9.86 9.86 0 012.1 12.001c0-5.47 4.4-9.92 9.875-9.92 2.64 0 5.122 1.045 6.988 2.943a9.825 9.825 0 012.89 6.994c-.003 5.45-4.437 9.884-9.882 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+  </svg>
+</a>
+
+<!-- CART PANEL -->
+<div class="cart-overlay" id="cartOverlay" role="dialog" aria-modal="true" aria-label="Carrito de compras">
+  <div class="cart-panel">
+    <div class="cart-header">
+      <h3>🛒 Tu Carrito</h3>
+      <button class="cart-close" onclick="closeCart()" aria-label="Cerrar carrito">✕</button>
+    </div>
+    <div class="cart-items" id="cartItems">
+      <div class="cart-empty"><span>🛒</span>Tu carrito está vacío.</div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">RD$ 0</strong>
+      </div>
+      <button class="cart-checkout" onclick="startCheckout()">Proceder al Pedido →</button>
+    </div>
+  </div>
+</div>
+
+<!-- CHECKOUT MODAL -->
+<div class="modal-overlay" id="checkoutModal" role="dialog" aria-modal="true" aria-label="Checkout">
+  <div class="modal" id="checkoutContent"></div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
